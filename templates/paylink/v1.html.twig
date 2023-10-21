@@ -1,6 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {{ component('PaymentMethodComponent', { amount: 5000, type: 'visa'}) 
+    {{ 
+        component('PaymentMethodComponent', { amount: 5000, type: 'visa'}) 
     }}
+
+
+  <div {{ react_component('Hello', { 'fullName': 'User Name' }) }}>
+        Loading... <i class="fas fa-cog fa-spin fa-3x"></i>
+  </div>
 {% endblock %}
