@@ -1,0 +1,8 @@
+{# templates/components/alert.html.twig #}
+
+<div class="payment-method">
+<h1>Payment Method: {{ this.getPaymentMethod() }}</h1>
+    <span>
+        {{ amount | number_format(2, ',', '.') ~ ' ' ~ currency}} 
+    </span>
+</div>
