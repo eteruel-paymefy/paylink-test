@@ -21,7 +21,10 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
-    App\Controller\PaylinkController:
+    App\Controller\PaylinkReactController:
+        tags: ['controller.service_arguments']
+
+    App\Controller\PaylinkTwigController:
         tags: ['controller.service_arguments']
 
     # add more service definitions when explicit configuration is needed
