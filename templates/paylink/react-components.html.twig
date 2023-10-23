@@ -1,7 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-  <div {{ react_component('Hello', { 'fullName': name }) }}>
-        Loading... <i class="fas fa-cog fa-spin fa-3x"></i>
+ {# id, data from src/Controller/PaylinkReact.php and send by props to react component #}
+  <div {{ react_component('Main', { id, data}) }}>
+        cargando... <i class="fas fa-cog fa-spin fa-3x"></i>
   </div>
+
+
 {% endblock %}

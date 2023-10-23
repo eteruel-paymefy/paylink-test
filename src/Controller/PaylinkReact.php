@@ -8,17 +8,27 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class PaylinkReactController extends AbstractController
 {
-    #[Route('/paylink/react')]
-    public function main(): Response
+
+    public function getData($id)
     {
         $data = [
-            'name' => 'Luis',
-            'age' => 25
+            'id' => 1
+        ];
+        return $data;
+    }
+
+    #[Route('/paylink/react/{id}')]
+    public function main($id): Response
+    {
+
+        $data = [
+            'id' => $id,
+            'data' => $this->getData($id)
         ];
 
         return $this->render('paylink/react-components.html.twig', [
-            'name' => $data['name'],
-            'age' => $data['age']
+            'id' => $data['id'],
+            'data' => $data['data']
         ]);
     }
 }
