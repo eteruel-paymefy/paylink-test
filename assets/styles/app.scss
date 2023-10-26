@@ -4,7 +4,24 @@
 @import '~primeicons/primeicons.css';
 @import '~primeflex/primeflex.css';
 
+@import './components/card';
+@import './components/panel';
+
 body {
     color: rgb(32, 32, 33);
     background-color: white
+}
+
+
+.p-steps-title	{
+    font-size: .8rem;
+}
+
+.p-steps { 
+    width: 300px;
+}
+
+.max-width {
+   // max-width: $max-width !important;
+   max-width: 100% !important   ;
 }

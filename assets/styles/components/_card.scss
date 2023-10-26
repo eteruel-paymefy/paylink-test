@@ -1,0 +1,7 @@
+.c_card {
+  border-radius: calc(2 * $unit);
+  padding: calc(2 * $unit);
+  box-shadow: $floating-shadow;
+  font-weight: 200;
+  color: $gray-7500
+}

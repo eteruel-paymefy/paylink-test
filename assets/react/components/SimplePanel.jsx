@@ -1,31 +1,59 @@
 import React from "react";
 import { Panel } from "primereact/panel";
-import { Ripple } from 'primereact/ripple';
-export default function () {
-  const template = (options) => {
-    const toggleIcon = options.collapsed ? 'pi pi-chevron-down' : 'pi pi-chevron-up';
-    const className = `${options.className} justify-content-start`;
-    const titleClassName = `${options.titleClassName} ml-2 text-primary`;
-    const style = { fontSize: '1.25rem' };
+import { Ripple } from "primereact/ripple";
 
+function CustomPanel({ header1, header2, content}) {
+
+  const headerTemplate = (options) => {
+    const {
+      collapsed,
+      className,
+      togglerClassName,
+      onTogglerClick,
+      titleClassName,
+    } = options;
+
+    const toggleIcon = !collapsed ? "pi pi-chevron-down" : "pi pi-chevron-right";
+    const combinedClassName = `${className} justify-content-between align-items-center flex-row-reverse`;
+    const combinedTitleClassName = `${titleClassName} text-600 font-medium`;
+    const style = { fontSize: "1rem" };
     return (
-        <div className={className}>
-            <button className={options.togglerClassName} onClick={options.onTogglerClick}>
-                <span className={toggleIcon}></span>
-                <Ripple />
-            </button>
-            <span className={titleClassName} style={style}>Header</span>
+      <div className={combinedClassName}>
+        <button className={togglerClassName} onClick={onTogglerClick}>
+          <span className={toggleIcon}></span>
+          <Ripple />
+        </button>
+        <div  className="w-10rem">
+          {header1 && (
+            <span className={combinedTitleClassName} style={style}>
+              {header1}
+            </span>
+          )}
+
+          {header2 && (
+            <span className={combinedTitleClassName + ' ml-7'} style={style}>
+              {header2}
+            </span>
+          )}
         </div>
+      </div>
     );
-};
+  };
+
   return (
-    <Panel headerTemplate={template} className="w-full" toggleable>
-      <p className="m-0 text-400">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. 
-      </p>
+    <Panel
+      headerTemplate={headerTemplate}
+      className="panel"
+      toggleable
+    >
+      <div
+        className="m-0 text-400 font-light"
+        dangerouslySetInnerHTML={{
+          __html: content
+        }}
+      ></div>
     </Panel>
   );
 }
+
+export default CustomPanel;

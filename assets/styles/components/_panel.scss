@@ -1,0 +1,20 @@
+.panel {
+  width: 100%;
+  box-shadow: $floating-shadow;
+}
+
+.p-panel .p-panel-header {
+  border: none !important;
+  background-color: $primary-color !important;
+  span {
+    color: $secondary-color !important;
+    font-weight: 400 !important;
+  }
+  .p-panel-header-icon {
+    background-color: transparent !important;
+  }
+}
+
+.p-panel-content {
+  border: none !important;
+}
